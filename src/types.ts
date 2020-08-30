@@ -1,0 +1,3 @@
+interface Sequence {
+  generate: Function;
+}
