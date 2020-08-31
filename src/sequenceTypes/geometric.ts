@@ -1,4 +1,4 @@
-import { createSequence, ISequence } from "./sequence";
+import { createSequence, ISequence } from "../sequence";
 
 export enum GeometricOperator {
   Multiply,
