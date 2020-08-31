@@ -1,4 +1,4 @@
-import { createSequence, ISequence } from "../sequence";
+import { createSequence, Sequence } from "../sequence";
 
 export enum GeometricOperator {
   Multiply,
@@ -21,7 +21,7 @@ export function Geometric(
   start: number,
   commonRatio: number,
   geometricOperator: GeometricOperator
-): ISequence {
+): Sequence {
   const next = (current: number) =>
     geometricOperator === GeometricOperator.Multiply
       ? current * commonRatio

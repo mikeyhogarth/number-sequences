@@ -1,4 +1,4 @@
-import { createSequence, ISequence } from "../sequence";
+import { createSequence, Sequence } from "../sequence";
 
 /**
  * Arithmetic
@@ -11,7 +11,7 @@ import { createSequence, ISequence } from "../sequence";
  * for each iteration.
  */
 
-export function Arithmetic(start: number, commonDifference: number): ISequence {
+export function Arithmetic(start: number, commonDifference: number): Sequence {
   const next = (current: number) => {
     return current + commonDifference;
   };

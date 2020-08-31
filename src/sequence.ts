@@ -1,9 +1,13 @@
-export interface ISequence {
+export interface Sequence {
   generate: (qty: number) => Array<number>;
   nth: (n: number) => number;
 }
 
-export function createSequence(start: number, next: Function): ISequence {
+interface NextFunction {
+  (current: number): number;
+}
+
+export function createSequence(start: number, next: NextFunction): Sequence {
   return {
     /**
      * generate a sequence of a certain length
