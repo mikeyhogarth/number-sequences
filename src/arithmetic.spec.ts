@@ -22,4 +22,11 @@ describe("Arithmetic Sequences", () => {
       expect(seq.generate(5)).toEqual([5, 4, 3, 2, 1]);
     });
   });
+
+  describe("nth", () => {
+    it("calculates the nth element in the sequence", () => {
+      const seq = Arithmetic(2, 1);
+      expect(seq.nth(3)).toEqual(4);
+    });
+  });
 });
