@@ -22,10 +22,10 @@ export function Geometric(
   commonRatio: number,
   geometricOperator: GeometricOperator
 ): Sequence {
-  const next = (current: number) =>
+  const next = (prev: Array<number>) =>
     geometricOperator === GeometricOperator.Multiply
-      ? current * commonRatio
-      : current / commonRatio;
+      ? prev[prev.length - 1] * commonRatio
+      : prev[prev.length - 1] / commonRatio;
 
   return createSequence(start, next);
 }

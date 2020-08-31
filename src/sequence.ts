@@ -15,7 +15,7 @@ export interface Sequence {
  *
  */
 interface NextFunction {
-  (current: number, arr: Array<Number>): number;
+  (prev: Array<Number>): number;
 }
 
 /**
@@ -32,7 +32,7 @@ export function createSequence(start: number, next: NextFunction): Sequence {
     generate(qty: number) {
       return Array.apply(0, Array(qty - 1)).reduce(
         (acc: Array<number>, _: number, idx: number) => {
-          return [...acc, next(acc[idx], acc)];
+          return [...acc, next(acc)];
         },
         [start]
       );
