@@ -12,9 +12,7 @@ import { createSequence, Sequence } from "../sequence";
  */
 
 export function Arithmetic(start: number, commonDifference: number): Sequence {
-  const next = (current: number) => {
-    return current + commonDifference;
-  };
+  const next = (current: number) => current + commonDifference;
 
   return createSequence(start, next);
 }
