@@ -27,5 +27,11 @@ export function Geometric(
       ? prev[prev.length - 1] * commonRatio
       : prev[prev.length - 1] / commonRatio;
 
-  return createSequence(start, next);
+  const r =
+    geometricOperator === GeometricOperator.Multiply
+      ? commonRatio
+      : 1 / commonRatio;
+  const nth = (n: number): number => start * Math.pow(r, n - 1);
+
+  return createSequence(start, next, nth);
 }

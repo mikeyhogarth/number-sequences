@@ -23,27 +23,33 @@ interface NextFunction {
  * @param start Which number to start at
  * @param next A function to calculate, for each element, what comes next
  */
-export function createSequence(start: number, next: NextFunction): Sequence {
+export function createSequence(
+  start: number,
+  next: NextFunction,
+  customNth?: (n: number) => number
+): Sequence {
+  const generate = (qty: number): number[] => {
+    return Array.apply(0, Array(qty - 1)).reduce(
+      (acc: Array<number>, _: number, idx: number) => {
+        return [...acc, next(acc)];
+      },
+      [start]
+    );
+  };
+
+  const nth = customNth || ((n: number): number => generate(n)[n - 1]);
+
   return {
     /**
      * generate a sequence of a certain length
      * @param qty number of elements to generate
      */
-    generate(qty: number) {
-      return Array.apply(0, Array(qty - 1)).reduce(
-        (acc: Array<number>, _: number, idx: number) => {
-          return [...acc, next(acc)];
-        },
-        [start]
-      );
-    },
+    generate,
 
     /**
      * generate the nth element of a sequence
      * @param n which element to generate
      */
-    nth(n: number) {
-      return this.generate(n)[n - 1];
-    },
+    nth,
   };
 }

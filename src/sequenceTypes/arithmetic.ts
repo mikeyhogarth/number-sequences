@@ -15,5 +15,7 @@ export function Arithmetic(start: number, commonDifference: number): Sequence {
   const next = (prev: Array<number>) =>
     prev[prev.length - 1] + commonDifference;
 
-  return createSequence(start, next);
+  const nth = (n: number): number => start + (n - 1) * commonDifference;
+
+  return createSequence(start, next, nth);
 }
