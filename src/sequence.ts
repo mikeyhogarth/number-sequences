@@ -7,22 +7,30 @@ export interface Sequence {
  * creates a sequence from a generator
  */
 export function createSequence(generator: Generator): Sequence {
-  return {
-    /**
-     * generate the next item in the sequence
-     */
-    next() {
-      return generator.next().value;
-    },
+  /**
+   * next
+   * Genreate and return the next item in the sequence
+   */
+  function next(): number {
+    return generator.next().value;
+  }
 
-    /**
-     * generate the next N items in the sequence
-     * @param qty {number} number of elements to generate
-     * @returns array of next N items in the sequence
-     */
-    nextN(n: number, arr: Array<number> = []) {
-      if (n === 0) return arr;
-      return this.nextN(n - 1, [...arr, generator.next().value]);
-    },
+  /**
+   * nextN
+   * Generate and return the next N items in the sequence
+   * @param n the number to generate
+   */
+  function nextN(n: number): Array<number> {
+    function nextNHelper(n: number, arr: Array<number> = []): Array<number> {
+      return n === 0
+        ? arr
+        : nextNHelper(n - 1, [...arr, generator.next().value]);
+    }
+    return nextNHelper(n);
+  }
+
+  return {
+    next,
+    nextN,
   };
 }
