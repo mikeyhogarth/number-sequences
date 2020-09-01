@@ -11,7 +11,7 @@ export function createSequence(generator: Generator): Sequence {
     /**
      * generate the next item in the sequence
      */
-    next(): number {
+    next() {
       return generator.next().value;
     },
 
