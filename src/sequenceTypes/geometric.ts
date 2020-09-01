@@ -1,31 +1,23 @@
 import { createSequence, Sequence } from "../sequence";
 
-export enum GeometricOperator {
-  Multiply,
-  Divide,
-}
-
 /**
  * Geometric
  *
  * @param {*} start The number to start at
- * @param {*} commonRatio The number to multiply or divide by each time
- * @param {GeometricOperator} geometricOperator Whether to multiply or divide
+ * @param {*} commonRatio The number to multiply by each time
  *
- * Produces a geomereic number sequence. Geometric number
- * sequences are sequences which multiply or divide by a certain amount
- * for each iteration.
+ * Produces a geometric number sequence. Geometric number
+ * sequences are sequences which multiply or divide by a certain
+ * amount for each iteration.
  */
 
-export function Geometric(
-  start: number,
-  commonRatio: number,
-  geometricOperator: GeometricOperator
-): Sequence {
-  const next = (prev: Array<number>) =>
-    geometricOperator === GeometricOperator.Multiply
-      ? prev[prev.length - 1] * commonRatio
-      : prev[prev.length - 1] / commonRatio;
+// Public API
+export function Geometric(start: number, commonRatio: number): Sequence {
+  return createSequence(generator(start, commonRatio));
+}
 
-  return createSequence(start, next);
+// Generator
+function* generator(current = 0, commonRatio = 1): Generator {
+  yield current;
+  yield* generator(current * commonRatio, commonRatio);
 }

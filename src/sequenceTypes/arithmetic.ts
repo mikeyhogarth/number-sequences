@@ -11,9 +11,13 @@ import { createSequence, Sequence } from "../sequence";
  * for each iteration.
  */
 
+// Public API
 export function Arithmetic(start: number, commonDifference: number): Sequence {
-  const next = (prev: Array<number>) =>
-    prev[prev.length - 1] + commonDifference;
+  return createSequence(generator(start, commonDifference));
+}
 
-  return createSequence(start, next);
+// Generator
+function* generator(current = 0, commonDifference = 1): Generator {
+  yield current;
+  yield* generator(current + commonDifference, commonDifference);
 }

@@ -1,15 +1,20 @@
-import { Geometric, GeometricOperator } from "./geometric";
+import { Geometric } from "./geometric";
 
-describe("Arithmetic Sequences", () => {
+describe("Geometric Sequences", () => {
   describe("generate", () => {
-    it("creates an arithmetic sequence using multiply", () => {
-      const seq = Geometric(1, 2, GeometricOperator.Multiply);
-      expect(seq.generate(5)).toEqual([1, 2, 4, 8, 16]);
+    it("creates an geometric sequence", () => {
+      const seq = Geometric(1, 2);
+      expect(seq.nextN(5)).toEqual([1, 2, 4, 8, 16]);
     });
 
-    it("creates an arithmetic sequence using divide", () => {
-      const seq = Geometric(16, 2, GeometricOperator.Divide);
-      expect(seq.generate(5)).toEqual([16, 8, 4, 2, 1]);
+    it("allows you to specify a start number", () => {
+      const seq = Geometric(2, 2);
+      expect(seq.nextN(5)).toEqual([2, 4, 8, 16, 32]);
+    });
+
+    it("allows you to set less-than-1 values for n", () => {
+      const seq = Geometric(16, 0.5);
+      expect(seq.nextN(5)).toEqual([16, 8, 4, 2, 1]);
     });
   });
 });
