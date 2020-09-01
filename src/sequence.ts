@@ -20,13 +20,9 @@ export function createSequence(generator: Generator): Sequence {
      * @param qty {number} number of elements to generate
      * @returns array of next N items in the sequence
      */
-    nextN(n: number) {
-      return Array.apply(0, Array(n - 1)).reduce(
-        (acc: Array<number>, _: number, idx: number) => {
-          return [...acc, this.next()];
-        },
-        [this.next()]
-      );
+    nextN(n: number, arr: Array<number> = []) {
+      if (n === 0) return arr;
+      return this.nextN(n - 1, [...arr, generator.next().value]);
     },
   };
 }
