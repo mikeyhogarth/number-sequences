@@ -16,7 +16,7 @@ export function createSequence(generator: Generator): Sequence {
     },
 
     /**
-     * generate the next N items
+     * generate the next N items in the sequence
      * @param qty {number} number of elements to generate
      * @returns array of next N items in the sequence
      */
