@@ -12,7 +12,10 @@ import { createSequence, Sequence } from "../sequence";
  */
 
 // Public API
-export function Arithmetic(start: number, commonDifference: number): Sequence {
+export default function Arithmetic(
+  start: number,
+  commonDifference: number
+): Sequence {
   return createSequence(generator(start, commonDifference));
 }
 

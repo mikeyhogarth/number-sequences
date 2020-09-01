@@ -12,7 +12,10 @@ import { createSequence, Sequence } from "../sequence";
  */
 
 // Public API
-export function Geometric(start: number, commonRatio: number): Sequence {
+export default function Geometric(
+  start: number,
+  commonRatio: number
+): Sequence {
   return createSequence(generator(start, commonRatio));
 }
 

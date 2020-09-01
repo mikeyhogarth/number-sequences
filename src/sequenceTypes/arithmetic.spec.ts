@@ -1,4 +1,4 @@
-import { Arithmetic } from "./arithmetic";
+import Arithmetic from "./arithmetic";
 
 describe("Arithmetic Sequences", () => {
   describe("generate", () => {
