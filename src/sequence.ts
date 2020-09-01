@@ -4,7 +4,7 @@ export interface Sequence {
 }
 
 /**
- * creates a sequence
+ * creates a sequence from a generator
  */
 export function createSequence(generator: Generator): Sequence {
   return {
