@@ -19,12 +19,14 @@ state.
 import { Arithmetic } from "number-sequences";
 
 const seq = Arithmetic(1, 1);
+
+// Generate items one at a time...
 seq.next(); // 1
 seq.next(); // 2
 seq.next(); // 3
 
-const seq = Arithmetic(1, 1);
-seq.nextN(3); // [1, 2, 3]
+// Or multiple items at the same time
+seq.nextN(3); // [4, 5, 6]
 ```
 
 ## Available sequences
