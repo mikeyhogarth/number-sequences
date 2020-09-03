@@ -7,7 +7,9 @@ JS library to generate a variety of immutable number sequences.
 
 ## Installation
 
-This library is not yet published.
+```
+npm install number-sequences
+```
 
 ## Example
 
