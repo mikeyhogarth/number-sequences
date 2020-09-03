@@ -15,10 +15,10 @@ All number sequences return an immutable sequence object - the
 API for this is as per the ImmutableJS [`Seq`](https://immutable-js.github.io/immutable-js/docs/#/Seq) type.
 
 ```javascript
-import { Arithmetic } from "number-sequences";
+import { Arithmetic } from "number-sequences"
 
-const seq = Arithmetic(1, 1);
-seq.take(3).toArray(); // [1, 2, 3]
+const seq = Arithmetic(1, 1)
+seq.take(3).toArray() // [1, 2, 3]
 ```
 
 ## Available sequences
@@ -28,6 +28,10 @@ The following types of sequence are available with the following parameters bein
 - `Arithmetic(start, commonDifference)`
 - `Geometric(start, commonRatio)`
 - `Fibonacci()`
+- `Power(x)`
+- `Prime()`
+- `Triangle()`
+- `Collatz(start)`
 
 # Contributing
 

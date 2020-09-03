@@ -25,8 +25,7 @@ function* generator(
   prev: Array<number> = []
 ): Generator<number> {
   yield current;
-  const largestPrimeSoFar = prev[prev.length - 1];
-  const nextPrime = findNextPrime(nextCandidate(largestPrimeSoFar), prev);
-  prev.push(nextPrime);
+  prev.push(current);
+  const nextPrime = findNextPrime(nextCandidate(current), prev);
   yield* generator(nextPrime, prev);
 }
