@@ -15,7 +15,7 @@ const Collatz = (start: number): Sequence => {
 };
 
 // Generator
-function* generator(current: number): Generator {
+function* generator(current: number): Generator<number> {
   yield current;
   yield* generator(current % 2 === 0 ? current / 2 : 3 * current + 1);
 }

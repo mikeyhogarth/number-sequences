@@ -14,7 +14,7 @@ const Power = (x: number): Sequence => {
 };
 
 // Generator
-function* generator(current: number, initial?: number): Generator {
+function* generator(current: number, initial?: number): Generator<number> {
   yield current;
   const x = initial || current;
   yield* generator(current * x, x);

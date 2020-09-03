@@ -14,7 +14,7 @@ export default function Fibonacci(): Sequence {
 }
 
 // Generator
-function* generator(current = 0, next = 1): Generator {
+function* generator(current = 0, next = 1): Generator<number> {
   yield current;
   yield* generator(next, current + next);
 }

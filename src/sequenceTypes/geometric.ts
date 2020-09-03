@@ -20,7 +20,7 @@ export default function Geometric(
 }
 
 // Generator
-function* generator(current = 0, commonRatio = 1): Generator {
+function* generator(current = 0, commonRatio = 1): Generator<number> {
   yield current;
   yield* generator(current * commonRatio, commonRatio);
 }

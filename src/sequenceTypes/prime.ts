@@ -22,7 +22,10 @@ const Prime = (): Sequence => {
 };
 
 // Generator
-function* generator(current: number, prev: Array<number> = []): Generator {
+function* generator(
+  current: number,
+  prev: Array<number> = []
+): Generator<number> {
   yield current;
   const largestPrimeSoFar = prev[prev.length - 1];
   const nextPrime = findNextPrime(nextCandidate(largestPrimeSoFar), prev);

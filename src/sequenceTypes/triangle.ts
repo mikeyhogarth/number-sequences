@@ -21,7 +21,7 @@ const Triangle = (): Sequence => {
 // add n + 1 to get the next term
 // e.g. if current term is 10, then the above formula tells us it's the 4th term,
 // so we add 5 to get the 5th term = 15
-function* generator(current: number): Generator {
+function* generator(current: number): Generator<number> {
   yield current;
   const n = (Math.sqrt(1 + 8 * current) - 1) / 2;
   yield* generator(current + n + 1);

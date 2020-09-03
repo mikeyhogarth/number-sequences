@@ -1,19 +1,14 @@
+import { Seq } from "immutable";
+
 export interface Sequence {
-  next: () => number;
   nextN: (n: number) => Array<number>;
 }
 
 /**
  * creates a sequence from a generator
  */
-export function createSequence(generator: Generator): Sequence {
-  /**
-   * next
-   * Genreate and return the next item in the sequence
-   */
-  function next(): number {
-    return generator.next().value;
-  }
+export function createSequence(generator: Generator<number>): Sequence {
+  const seq = Seq(generator);
 
   /**
    * nextN
@@ -21,16 +16,10 @@ export function createSequence(generator: Generator): Sequence {
    * @param n the number to generate
    */
   function nextN(n: number): Array<number> {
-    function nextNHelper(n: number, arr: Array<number> = []): Array<number> {
-      return n === 0
-        ? arr
-        : nextNHelper(n - 1, [...arr, generator.next().value]);
-    }
-    return nextNHelper(n);
+    return seq.take(n).toArray();
   }
 
   return {
-    next,
     nextN,
   };
 }

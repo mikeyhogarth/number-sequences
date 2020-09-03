@@ -20,7 +20,7 @@ export default function Arithmetic(
 }
 
 // Generator
-function* generator(current = 0, commonDifference = 1): Generator {
+function* generator(current = 0, commonDifference = 1): Generator<number> {
   yield current;
   yield* generator(current + commonDifference, commonDifference);
 }

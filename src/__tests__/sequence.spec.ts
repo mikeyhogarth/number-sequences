@@ -11,21 +11,11 @@ function createGenerator() {
 describe("createSequence", () => {
   it("returns a sequence", () => {
     const sequence = createSequence(createGenerator());
-    expect(sequence.next).toBeInstanceOf(Function);
     expect(sequence.nextN).toBeInstanceOf(Function);
   });
 });
 
 describe("Sequences", () => {
-  describe("#next", () => {
-    it("calculates the next item in the sequence", () => {
-      const sequence = createSequence(createGenerator());
-      expect(sequence.next()).toEqual(1);
-      expect(sequence.next()).toEqual(2);
-      expect(sequence.next()).toEqual(3);
-    });
-  });
-
   describe("#nextN", () => {
     it("calculates the next item in the sequence", () => {
       const sequence = createSequence(createGenerator());
