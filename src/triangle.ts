@@ -1,4 +1,4 @@
-import { createSequence, Sequence } from "../sequence";
+import { Seq } from "immutable";
 
 /**
  * Triangle
@@ -8,8 +8,8 @@ import { createSequence, Sequence } from "../sequence";
  */
 
 // Public API
-const Triangle = (): Sequence => {
-  return createSequence(generator(1));
+const Triangle = (): Seq.Indexed<number> => {
+  return Seq<number>(generator(1));
 };
 
 // Generator

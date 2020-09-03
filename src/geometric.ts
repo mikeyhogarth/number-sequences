@@ -1,4 +1,4 @@
-import { createSequence, Sequence } from "../sequence";
+import { Seq } from "immutable";
 
 /**
  * Geometric
@@ -15,8 +15,8 @@ import { createSequence, Sequence } from "../sequence";
 export default function Geometric(
   start: number,
   commonRatio: number
-): Sequence {
-  return createSequence(generator(start, commonRatio));
+): Seq.Indexed<number> {
+  return Seq<number>(generator(start, commonRatio));
 }
 
 // Generator

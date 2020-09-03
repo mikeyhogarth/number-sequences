@@ -1,4 +1,4 @@
-import { createSequence, Sequence } from "../sequence";
+import { Seq } from "immutable";
 
 /**
  * Fibonacci
@@ -9,8 +9,8 @@ import { createSequence, Sequence } from "../sequence";
  */
 
 // Public API
-export default function Fibonacci(): Sequence {
-  return createSequence(generator());
+export default function Fibonacci(): Seq.Indexed<number> {
+  return Seq<number>(generator());
 }
 
 // Generator

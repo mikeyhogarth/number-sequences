@@ -3,7 +3,7 @@
 
 # Number Sequences
 
-JS library to generate number sequences.
+JS library to generate a variety of immutable number sequences.
 
 ## Installation
 
@@ -11,14 +11,14 @@ This library is not yet published.
 
 ## Example
 
-All sequence types expose an API to return the next N items. Sequences manage their own
-state.
+All number sequences return an immutable sequence object - the
+API for this is as per the ImmutableJS [`Seq`](https://immutable-js.github.io/immutable-js/docs/#/Seq) type.
 
 ```javascript
 import { Arithmetic } from "number-sequences";
 
 const seq = Arithmetic(1, 1);
-seq.nextN(3); // [1, 2, 3]
+seq.take(3).toArray(); // [1, 2, 3]
 ```
 
 ## Available sequences
