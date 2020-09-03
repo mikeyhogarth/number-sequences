@@ -29,8 +29,12 @@ seq.take(3).toArray(); // [1, 2, 3]
 The following types of sequence are available with the following parameters being permitted for each.
 
 - `Arithmetic(start, commonDifference)`
-- `Geometric(start, commonRatio)`
+- `Collatz(start)`
 - `Fibonacci()`
+- `Geometric(start, commonRatio)`
+- `Power(start)`
+- `Prime()`
+- `Triangle()`
 
 # Contributing
 

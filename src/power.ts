@@ -9,7 +9,8 @@ import { Seq } from "immutable";
  */
 
 // Public API
-export default (x: number): Seq.Indexed<number> => Seq<number>(generator(x));
+export default (start: number): Seq.Indexed<number> =>
+  Seq<number>(generator(start));
 
 // Generator
 function* generator(current: number, initial?: number): Generator<number> {
