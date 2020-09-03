@@ -1,4 +1,3 @@
-import { Seq } from "immutable";
 import Prime from "../prime";
 import Triangle from "../triangle";
 import Twin from "../twin";
