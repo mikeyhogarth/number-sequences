@@ -9,10 +9,6 @@ describe("The twin sequence", () => {
       const seqA = Prime();
       const seqB = Triangle();
       const seq = Twin(seqA, seqB);
-      console.log(seqA.take(5).toArray());
-      console.log(seqB.take(5).toArray());
-      console.log(seqA.take(5).toArray());
-      console.log(seqB.take(5).toArray());
       expect(seq.take(10).toArray()).toEqual([2, 1, 3, 3, 5, 6, 7, 10, 11, 15]);
     });
   });
