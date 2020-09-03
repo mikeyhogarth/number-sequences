@@ -17,9 +17,7 @@ const findNextPrime = (n: number, knownPrimes: Array<number>): number => {
 const nextCandidate = (n: number): number => n + (n === 2 ? 1 : 2);
 
 // Public API
-const Prime = (): Seq.Indexed<number> => {
-  return Seq<number>(generator(2, [2]));
-};
+export default (): Seq.Indexed<number> => Seq<number>(generator(2, [2]));
 
 // Generator
 function* generator(
@@ -32,5 +30,3 @@ function* generator(
   prev.push(nextPrime);
   yield* generator(nextPrime, prev);
 }
-
-export default Prime;

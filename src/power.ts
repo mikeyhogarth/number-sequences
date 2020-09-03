@@ -9,9 +9,7 @@ import { Seq } from "immutable";
  */
 
 // Public API
-const Power = (x: number): Seq.Indexed<number> => {
-  return Seq<number>(generator(x));
-};
+export default (x: number): Seq.Indexed<number> => Seq<number>(generator(x));
 
 // Generator
 function* generator(current: number, initial?: number): Generator<number> {
@@ -19,5 +17,3 @@ function* generator(current: number, initial?: number): Generator<number> {
   const x = initial || current;
   yield* generator(current * x, x);
 }
-
-export default Power;

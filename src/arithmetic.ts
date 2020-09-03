@@ -12,12 +12,8 @@ import { Seq } from "immutable";
  */
 
 // Public API
-export default function Arithmetic(
-  start: number,
-  commonDifference: number
-): Seq.Indexed<number> {
-  return Seq<number>(generator(start, commonDifference));
-}
+export default (start: number, commonDifference: number): Seq.Indexed<number> =>
+  Seq<number>(generator(start, commonDifference));
 
 // Generator
 function* generator(current = 0, commonDifference = 1): Generator<number> {

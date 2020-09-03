@@ -10,14 +10,11 @@ import { Seq } from "immutable";
  */
 
 // Public API
-const Collatz = (start: number): Seq.Indexed<number> => {
-  return Seq<number>(generator(start));
-};
+export default (start: number): Seq.Indexed<number> =>
+  Seq<number>(generator(start));
 
 // Generator
 function* generator(current: number): Generator<number> {
   yield current;
   yield* generator(current % 2 === 0 ? current / 2 : 3 * current + 1);
 }
-
-export default Collatz;

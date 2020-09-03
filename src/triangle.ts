@@ -8,9 +8,7 @@ import { Seq } from "immutable";
  */
 
 // Public API
-const Triangle = (): Seq.Indexed<number> => {
-  return Seq<number>(generator(1));
-};
+export default (): Seq.Indexed<number> => Seq<number>(generator(1));
 
 // Generator
 // The general formula for the nth triangle number is n*(n + 1)/2
@@ -26,5 +24,3 @@ function* generator(current: number): Generator<number> {
   const n = (Math.sqrt(1 + 8 * current) - 1) / 2;
   yield* generator(current + n + 1);
 }
-
-export default Triangle;

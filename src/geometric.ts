@@ -12,12 +12,8 @@ import { Seq } from "immutable";
  */
 
 // Public API
-export default function Geometric(
-  start: number,
-  commonRatio: number
-): Seq.Indexed<number> {
-  return Seq<number>(generator(start, commonRatio));
-}
+export default (start: number, commonRatio: number): Seq.Indexed<number> =>
+  Seq<number>(generator(start, commonRatio));
 
 // Generator
 function* generator(current = 0, commonRatio = 1): Generator<number> {

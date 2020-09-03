@@ -9,9 +9,7 @@ import { Seq } from "immutable";
  */
 
 // Public API
-export default function Fibonacci(): Seq.Indexed<number> {
-  return Seq<number>(generator());
-}
+export default (): Seq.Indexed<number> => Seq<number>(generator());
 
 // Generator
 function* generator(current = 0, next = 1): Generator<number> {
