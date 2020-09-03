@@ -7,11 +7,17 @@ import { createSequence, Sequence } from "../sequence";
  *   = 1, (1 + 2), (1 + 2 + 3) etc
  */
 
-export const Triangle = (): Sequence => {
-  const next = (prev: Array<number>): number =>
-    prev[prev.length - 1] + prev.length + 1;
-
-  const nth = (n: number): number => (n * (n + 1)) / 2;
-
-  return createSequence(1, next, nth);
+// Public API
+const Triangle = (): Sequence => {
+  return createSequence(generator(1));
 };
+
+// Generator
+function* generator(current: number, prev: Array<number> = []): Generator {
+  prev.push(current);
+  yield current;
+  const next = prev[prev.length - 1] + prev.length + 1;
+  yield* generator(next, prev);
+}
+
+export default Triangle;

@@ -8,10 +8,16 @@ import { createSequence, Sequence } from "../sequence";
  *      for 3 it would be 3, 9, 27, 81....
  */
 
-export const Power = (x: number): Sequence => {
-  const next = (prev: Array<number>): number => Math.pow(x, prev.length + 1);
-
-  const nth = (n: number): number => Math.pow(x, n);
-
-  return createSequence(x, next, nth);
+// Public API
+const Power = (x: number): Sequence => {
+  return createSequence(generator(x));
 };
+
+// Generator
+function* generator(current: number, initial?: number): Generator {
+  yield current;
+  const x = initial || current;
+  yield* generator(current * x, x);
+}
+
+export default Power;

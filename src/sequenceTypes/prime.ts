@@ -16,11 +16,18 @@ const findNextPrime = (n: number, knownPrimes: Array<number>): number => {
 // Only exception is the very first increment, because the first prime is 2, the only even prime
 const nextCandidate = (n: number): number => n + (n === 2 ? 1 : 2);
 
-export const Prime = (): Sequence => {
-  const next = (prev: Array<number>): number => {
-    const largestPrimeSoFar = prev[prev.length - 1];
-    return findNextPrime(nextCandidate(largestPrimeSoFar), prev);
-  };
-
-  return createSequence(2, next);
+// Public API
+const Prime = (): Sequence => {
+  return createSequence(generator(2, [2]));
 };
+
+// Generator
+function* generator(current: number, prev: Array<number> = []): Generator {
+  yield current;
+  const largestPrimeSoFar = prev[prev.length - 1];
+  const nextPrime = findNextPrime(nextCandidate(largestPrimeSoFar), prev);
+  prev.push(nextPrime);
+  yield* generator(nextPrime, prev);
+}
+
+export default Prime;

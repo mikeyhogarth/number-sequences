@@ -1,55 +1,36 @@
 export interface Sequence {
-  generate: (qty: number) => Array<number>;
-  nth: (n: number) => number;
+  next: () => number;
+  nextN: (n: number) => Array<number>;
 }
 
 /**
- * NextFunction
- *
- * Function should be implemented by a sequence in order to
- * calculate the next element in the sequence. The function
- * will have the following parameters yielded to it;
- *
- * @param current The latest number that was generated
- * @param arr All numbers generated so far
- *
+ * creates a sequence from a generator
  */
-interface NextFunction {
-  (prev: Array<Number>): number;
-}
+export function createSequence(generator: Generator): Sequence {
+  /**
+   * next
+   * Genreate and return the next item in the sequence
+   */
+  function next(): number {
+    return generator.next().value;
+  }
 
-/**
- * creates a sequence
- * @param start Which number to start at
- * @param next A function to calculate, for each element, what comes next
- */
-export function createSequence(
-  start: number,
-  next: NextFunction,
-  customNth?: (n: number) => number
-): Sequence {
-  const generate = (qty: number): number[] => {
-    return Array.apply(0, Array(qty - 1)).reduce(
-      (acc: Array<number>, _: number, idx: number) => {
-        return [...acc, next(acc)];
-      },
-      [start]
-    );
-  };
-
-  const nth = customNth || ((n: number): number => generate(n)[n - 1]);
+  /**
+   * nextN
+   * Generate and return the next N items in the sequence
+   * @param n the number to generate
+   */
+  function nextN(n: number): Array<number> {
+    function nextNHelper(n: number, arr: Array<number> = []): Array<number> {
+      return n === 0
+        ? arr
+        : nextNHelper(n - 1, [...arr, generator.next().value]);
+    }
+    return nextNHelper(n);
+  }
 
   return {
-    /**
-     * generate a sequence of a certain length
-     * @param qty number of elements to generate
-     */
-    generate,
-
-    /**
-     * generate the nth element of a sequence
-     * @param n which element to generate
-     */
-    nth,
+    next,
+    nextN,
   };
 }

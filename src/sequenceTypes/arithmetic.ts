@@ -11,11 +11,16 @@ import { createSequence, Sequence } from "../sequence";
  * for each iteration.
  */
 
-export function Arithmetic(start: number, commonDifference: number): Sequence {
-  const next = (prev: Array<number>) =>
-    prev[prev.length - 1] + commonDifference;
+// Public API
+export default function Arithmetic(
+  start: number,
+  commonDifference: number
+): Sequence {
+  return createSequence(generator(start, commonDifference));
+}
 
-  const nth = (n: number): number => start + (n - 1) * commonDifference;
-
-  return createSequence(start, next, nth);
+// Generator
+function* generator(current = 0, commonDifference = 1): Generator {
+  yield current;
+  yield* generator(current + commonDifference, commonDifference);
 }
