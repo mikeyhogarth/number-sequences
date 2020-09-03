@@ -11,22 +11,14 @@ This library is not yet published.
 
 ## Example
 
-All sequence types expose an API to return the next item in
-the sequence or the next N items. Sequences manage their own
+All sequence types expose an API to return the next N items. Sequences manage their own
 state.
 
 ```javascript
 import { Arithmetic } from "number-sequences";
 
 const seq = Arithmetic(1, 1);
-
-// Generate items one at a time...
-seq.next(); // 1
-seq.next(); // 2
-seq.next(); // 3
-
-// Or multiple items at the same time
-seq.nextN(3); // [4, 5, 6]
+seq.nextN(3); // [1, 2, 3]
 ```
 
 ## Available sequences
