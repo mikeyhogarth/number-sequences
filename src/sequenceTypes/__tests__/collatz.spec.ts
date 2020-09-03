@@ -1,4 +1,4 @@
-import Collatz from "./collatz";
+import Collatz from "../collatz";
 
 describe("Collatz Sequences", () => {
   describe("generate", () => {

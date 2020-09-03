@@ -1,4 +1,4 @@
-import Geometric from "./geometric";
+import Geometric from "../geometric";
 
 describe("Geometric Sequences", () => {
   it("creates an geometric sequence", () => {

@@ -1,4 +1,4 @@
-import Fibonacci from "./fibonacci";
+import Fibonacci from "../fibonacci";
 
 describe("Fibonacci", () => {
   it("creates a Fibonacci sequence", () => {
