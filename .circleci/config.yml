@@ -1,10 +1,20 @@
-version: 2.1
-orbs:
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check {{ '/2.0/language-javascript/' | docs_url }} for more details
+#
+version: 2
+
+orbs:	orbs:
   node: circleci/node@3.0.0
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:10.16.0
 
 jobs:
   deploy:
-    working_directory: ~/repo
+    <<: *defaults
     steps:
       - attach_workspace:
           at: ~/repo
@@ -16,17 +26,18 @@ jobs:
           command: npm publish
 
 workflows:
-  test:
+  version: 2
+  node-tests:
     jobs:
       - node/test
-  test-and-deploy:
+  test-deploy:
     jobs:
       - node/test
       - deploy:
-        requires:
-          - test
-        filters:
-          tags:
-            only: /^v.*/
-          branches:
-            ignore: /.*/
+          requires:
+            - test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
