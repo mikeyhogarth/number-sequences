@@ -32,6 +32,7 @@ The following types of sequence are available with the following parameters bein
 - `Prime()`
 - `Triangle()`
 - `Collatz(start)`
+- `Twin(a, b)`
 
 # Contributing
 
