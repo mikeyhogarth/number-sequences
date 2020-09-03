@@ -1,4 +1,4 @@
-import Prime from "./prime";
+import Prime from "../prime";
 
 describe("The prime sequence", () => {
   describe("generate", () => {

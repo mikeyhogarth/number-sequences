@@ -1,4 +1,4 @@
-import Power from "./power";
+import Power from "../power";
 
 describe("The power sequence", () => {
   describe("generate", () => {

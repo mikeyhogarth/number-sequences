@@ -1,4 +1,4 @@
-import { Sequence, createSequence } from "./sequence";
+import { Sequence, createSequence } from "../sequence";
 
 function createGenerator() {
   return (function* () {
