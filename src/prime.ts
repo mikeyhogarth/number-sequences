@@ -1,4 +1,4 @@
-import { createSequence, Sequence } from "../sequence";
+import { Seq } from "immutable";
 
 /**
  * Prime
@@ -17,8 +17,8 @@ const findNextPrime = (n: number, knownPrimes: Array<number>): number => {
 const nextCandidate = (n: number): number => n + (n === 2 ? 1 : 2);
 
 // Public API
-const Prime = (): Sequence => {
-  return createSequence(generator(2, [2]));
+const Prime = (): Seq.Indexed<number> => {
+  return Seq<number>(generator(2, [2]));
 };
 
 // Generator

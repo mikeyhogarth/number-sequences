@@ -1,4 +1,4 @@
-import { createSequence, Sequence } from "../sequence";
+import { Seq } from "immutable";
 
 /**
  * Arithmetic
@@ -15,8 +15,8 @@ import { createSequence, Sequence } from "../sequence";
 export default function Arithmetic(
   start: number,
   commonDifference: number
-): Sequence {
-  return createSequence(generator(start, commonDifference));
+): Seq.Indexed<number> {
+  return Seq<number>(generator(start, commonDifference));
 }
 
 // Generator

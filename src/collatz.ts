@@ -1,4 +1,4 @@
-import { createSequence, Sequence } from "../sequence";
+import { Seq } from "immutable";
 
 /**
  * Collatz
@@ -10,8 +10,8 @@ import { createSequence, Sequence } from "../sequence";
  */
 
 // Public API
-const Collatz = (start: number): Sequence => {
-  return createSequence(generator(start));
+const Collatz = (start: number): Seq.Indexed<number> => {
+  return Seq<number>(generator(start));
 };
 
 // Generator

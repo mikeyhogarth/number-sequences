@@ -1,4 +1,4 @@
-import { createSequence, Sequence } from "../sequence";
+import { Seq } from "immutable";
 
 /**
  * Power
@@ -9,8 +9,8 @@ import { createSequence, Sequence } from "../sequence";
  */
 
 // Public API
-const Power = (x: number): Sequence => {
-  return createSequence(generator(x));
+const Power = (x: number): Seq.Indexed<number> => {
+  return Seq<number>(generator(x));
 };
 
 // Generator
