@@ -2,13 +2,13 @@
   "name": "number-sequences",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "tsc"
   },
-  "author": "",
+  "author": "Mikey & Ben",
   "license": "ISC",
   "dependencies": {
     "@types/jest": "^26.0.10",
