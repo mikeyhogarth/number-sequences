@@ -1,13 +1,16 @@
-[![mikeyhogarth](https://circleci.com/gh/mikeyhogarth/number-sequences.svg?style=svg)](https://circleci.com/gh/mikeyhogarth/number-sequences)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d86b1fb82cf54880854ac0649ef3ab0f)](https://www.codacy.com/manual/mikeyhogarth/number-sequences?utm_source=github.com&utm_medium=referral&utm_content=mikeyhogarth/number-sequences&utm_campaign=Badge_Grade)
-
 # Number Sequences
 
 JS library to generate a variety of immutable number sequences.
 
+[![mikeyhogarth](https://circleci.com/gh/mikeyhogarth/number-sequences.svg?style=svg)](https://circleci.com/gh/mikeyhogarth/number-sequences)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d86b1fb82cf54880854ac0649ef3ab0f)](https://www.codacy.com/manual/mikeyhogarth/number-sequences?utm_source=github.com&utm_medium=referral&utm_content=mikeyhogarth/number-sequences&utm_campaign=Badge_Grade)
+![npm](https://img.shields.io/npm/v/number-sequences)
+
 ## Installation
 
-This library is not yet published.
+```
+npm install number-sequences
+```
 
 ## Example
 
@@ -26,12 +29,12 @@ seq.take(3).toArray(); // [1, 2, 3]
 The following types of sequence are available with the following parameters being permitted for each.
 
 - `Arithmetic(start, commonDifference)`
-- `Geometric(start, commonRatio)`
+- `Collatz(start)`
 - `Fibonacci()`
-- `Power(x)`
+- `Geometric(start, commonRatio)`
+- `Power(start)`
 - `Prime()`
 - `Triangle()`
-- `Collatz(start)`
 - `Twin(a, b)`
 
 # Contributing
