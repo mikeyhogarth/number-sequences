@@ -1,4 +1,4 @@
-import { Seq } from "immutable";
+import { Seq, List } from "immutable";
 
 /**
  * Prime
@@ -7,7 +7,7 @@ import { Seq } from "immutable";
  */
 
 // Check if any of the primes found so far are factors of n. If not, then n is prime, so return that, else repeat for next candidate
-const findNextPrime = (n: number, knownPrimes: Array<number>): number => {
+const findNextPrime = (n: number, knownPrimes: List<number>): number => {
   const f = knownPrimes.find((p) => n % p === 0);
   return f ? findNextPrime(nextCandidate(n), knownPrimes) : n;
 };
@@ -17,15 +17,15 @@ const findNextPrime = (n: number, knownPrimes: Array<number>): number => {
 const nextCandidate = (n: number): number => n + (n === 2 ? 1 : 2);
 
 // Public API
-export default (): Seq.Indexed<number> => Seq<number>(generator(2, [2]));
+export default (): Seq.Indexed<number> => Seq<number>(generator(2, List([2])));
 
 // Generator
 function* generator(
   current: number,
-  prev: Array<number> = []
+  prev: List<number> = List()
 ): Generator<number> {
   yield current;
-  prev.push(current);
-  const nextPrime = findNextPrime(nextCandidate(current), prev);
-  yield* generator(nextPrime, prev);
+  const knownPrimes = prev.push(current);
+  const nextPrime = findNextPrime(nextCandidate(current), knownPrimes);
+  yield* generator(nextPrime, knownPrimes);
 }
