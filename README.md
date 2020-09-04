@@ -36,6 +36,7 @@ The following types of sequence are available with the following parameters bein
 - `Prime()`
 - `Triangle()`
 - `Twin(a, b)`
+- `NthPower(n)`
 
 # Contributing
 
