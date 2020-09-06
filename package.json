@@ -8,7 +8,7 @@
   ],
   "prepublish": "tsc",
   "scripts": {
-    "prepublish": "npm build",
+    "prepublishOnly": "npm build",
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "tsc"
