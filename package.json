@@ -1,6 +1,6 @@
 {
   "name": "number-sequences",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "",
   "homepage": "https://github.com/mikeyhogarth/number-sequences",
   "main": "dist/index.js",
